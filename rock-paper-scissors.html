@@ -26,35 +26,46 @@
             // ask if you would like to play again. 
 
             // Create a function to accept user input
-            function userInput() {
+            function userChoice() {
                 let choice = prompt('Choose rock, paper, or scissors.', 'rock')
                 return choice
                 }
 
-            userInput()
-
             // Function to choose rock paper or scissors for the computer.
 
-            function aiInput() {
+            function aiChoice() {
                 // Generate a number between between 0 and 1.
                 let choice = Math.random(0, 1)
                 // If choice is between 0 and .33, choose rock
                 if (choice <= .33) {
-                    console.log('rock')
                     return 'rock'; 
                 // Else if choice is between .33 and .66 choose paper.
                 } else if (choice > .33 && choice <= .66) {
-                    console.log('paper')
                     return 'paper';
                     // Else choose scissors. 
                 } else {
-                    console.log('scissors')
                     return 'scissors';
                 } 
             }
 
-            aiInput()
+            // Play a round.
             
+            // Compare ai choice to user choice, and decide a winner
+
+            // function playRound (userChoice, aiChoice)
+            function playRound(userChoice, aiChoice) {
+          
+                // if ai choice == user choice return, it's a tie!
+                console.log("It's a tie")
+
+            }
+
+           
+             
+            // if (ai == rock and user == scissors) OR (ai == paper AND user == rock) OR (ai == scissors AND user == paper)
+            // ai wins: return "You lose! (aiChoice) beats (userChoice)"
+            // else return "You win!" (userChoice) beats (aiChoice)
+
 
 
 
