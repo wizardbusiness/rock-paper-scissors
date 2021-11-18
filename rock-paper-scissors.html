@@ -33,7 +33,27 @@
 
             userInput()
 
-           
+            // Function to choose rock paper or scissors for the computer.
+
+            function aiInput() {
+                // Generate a number between between 0 and 1.
+                let choice = Math.random(0, 1)
+                // If choice is between 0 and .33, choose rock
+                if (choice <= .33) {
+                    console.log('rock')
+                    return 'rock'; 
+                // Else if choice is between .33 and .66 choose paper.
+                } else if (choice > .33 && choice <= .66) {
+                    console.log('paper')
+                    return 'paper';
+                    // Else choose scissors. 
+                } else {
+                    console.log('scissors')
+                    return 'scissors';
+                } 
+            }
+
+            aiInput()
             
 
 
