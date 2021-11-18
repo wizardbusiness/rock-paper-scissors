@@ -27,7 +27,8 @@
 
             // Create a function to accept user input
             function userChoice() {
-                let choice = prompt('Choose rock, paper, or scissors.', 'rock')
+                let choice = prompt('Choose rock, paper, or scissors.', 'scissors')
+                console.log(`Player1 chooses ${choice}`)
                 return choice
                 }
 
@@ -38,15 +39,15 @@
                 let choice = Math.random(0, 1)
                 // If choice is between 0 and .33, choose rock
                 if (choice <= .33) {
-                    console.log('rock');
+                    console.log('Computer chooses rock');
                     return 'rock'; 
                 // Else if choice is between .33 and .66 choose paper.
                 } else if (choice > .33 && choice <= .66) {
-                    console.log('paper');
+                    console.log('Computer chooses paper');
                     return 'paper';
                     // Else choose scissors. 
                 } else {
-                    console.log('scissors');
+                    console.log('Computer chooses scissors');
                     return 'scissors';
                 } 
             }
@@ -60,22 +61,28 @@
           
                 // if ai choice == user choice return, it's a tie!
                 if (userChoice == aiChoice) {
-                console.log("It's a tie")
+                console.log("Tie!");
+                return
                 }
-
+                // Else, if chooses rock and user chooses scissors, OR ai chooses paper and user chooses rock, OR ai chooses scissors and user chooses paper...
+                else if (aiChoice == 'rock' && userChoice == 'scissors' ||
+                         aiChoice == 'paper' && userChoice == 'rock' ||
+                         aiChoice == 'scissors' && userChoice == 'paper')  {
+                    // AI wins: return "You lose! (aiChoice) beats (userChoice)"
+                    console.log(`Player1 loses! ${aiChoice} beats ${userChoice}.`)
+                }
+                // else player1 wins
+                else {
+                    console.log(`Player1 wins! ${userChoice} beats ${aiChoice}!`) 
+                }
             }
-
-            playRound(userChoice(), aiChoice())
-
+            
 
 
-           
 
-           
+    
              
-            // if (ai == rock and user == scissors) OR (ai == paper AND user == rock) OR (ai == scissors AND user == paper)
-            // ai wins: return "You lose! (aiChoice) beats (userChoice)"
-            // else return "You win!" (userChoice) beats (aiChoice)
+         
 
 
 
