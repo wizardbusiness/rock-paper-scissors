@@ -38,12 +38,15 @@
                 let choice = Math.random(0, 1)
                 // If choice is between 0 and .33, choose rock
                 if (choice <= .33) {
+                    console.log('rock');
                     return 'rock'; 
                 // Else if choice is between .33 and .66 choose paper.
                 } else if (choice > .33 && choice <= .66) {
+                    console.log('paper');
                     return 'paper';
                     // Else choose scissors. 
                 } else {
+                    console.log('scissors');
                     return 'scissors';
                 } 
             }
@@ -56,9 +59,17 @@
             function playRound(userChoice, aiChoice) {
           
                 // if ai choice == user choice return, it's a tie!
+                if (userChoice == aiChoice) {
                 console.log("It's a tie")
+                }
 
             }
+
+            playRound(userChoice(), aiChoice())
+
+
+
+           
 
            
              
