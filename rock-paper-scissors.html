@@ -79,27 +79,39 @@
                     console.log(`Player1 wins! ${userChoice} beats ${aiChoice}!`) 
                 }
             } 
+
+
+        
+            // Function to let the user choose how many rounds they want to play.
+            function numRounds() {
+                let rounds = prompt('How many rounds do you want to play?');
+                parseInt(rounds);
+                return rounds;
+            }
+            
+
+
             
 
             // function playGame(playRound)
-            function playGame(rounds = 5) {
+            function playGame(rounds) {
                 // If the number of rounds played is equal to 0. 
-                    if (rounds == 0) {
-                        // Let the user know the game is over
-                        console.log("Game Over");
-                        // End the function call
-                        return;
-                    // Otherwise, call the playRound function, and call playGame, with 1 subtracted from the rounds value.
-                    } else {
-                        // call playRound function
-                        playRound(aiChoice(), userChoice())
-                        playGame(rounds - 1)
-                    }
-                    
+                if (rounds == 0) {
+                    // Let the user know the game is over
+                    console.log("Game Over");
+                    // End the function call
+                    return;
+                // Otherwise, call the playRound function, and call playGame, with 1 subtracted from the rounds value.
+                } else {
+                    // call playRound function
+                    playRound(aiChoice(), userChoice())
+                    playGame(rounds - 1)
                 }
+                    
+            }
             
 
-            playGame()
+            playGame(numRounds())
             // Play multiple rounds of a game of rock paper scissors
 
             
