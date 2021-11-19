@@ -52,17 +52,13 @@
                 } 
             }
 
-            // Play a round.
-            
-            // Compare ai choice to user choice, and decide a winner
-
-            // function playRound (userChoice, aiChoice)
+            // Function to play a round and compare the ai choice to user choice, and decide a winner
             function playRound(userChoice, aiChoice) {
           
                 // if ai choice equals user choice, it's a tie!
                 if (userChoice == aiChoice) {
-                console.log("Tie!");
-                return
+                console.log('Tie!\n ');
+                return;
                 }
                 // Else, if ai chooses rock and user chooses scissors, 
                 // OR ai chooses paper and user chooses rock, 
@@ -70,13 +66,14 @@
                 else if (aiChoice == 'rock' && userChoice == 'scissors' ||
                          aiChoice == 'paper' && userChoice == 'rock' ||
                          aiChoice == 'scissors' && userChoice == 'paper')  {
-                    // AI wins: return lose statement.
-                    console.log(`Player1 loses! ${aiChoice} beats ${userChoice}.`)
-
+                    // ai wins: return lose statement.
+                    console.log(`Player1 loses! ${aiChoice} beats ${userChoice}.\n `)
+                    return;
                 }
                 // else player1 wins: return win statement.
                 else {
-                    console.log(`Player1 wins! ${userChoice} beats ${aiChoice}!`) 
+                    console.log(`Player1 wins! ${userChoice} beats ${aiChoice}!\n `)
+                    return;
                 }
             } 
 
@@ -84,16 +81,13 @@
         
             // Function to let the user choose how many rounds they want to play.
             function numRounds() {
-                let rounds = prompt('How many rounds do you want to play?');
-                parseInt(rounds);
+                let rounds = prompt('How many rounds do you want to play?', 3);
                 return rounds;
             }
             
 
 
-            
-
-            // function playGame(playRound)
+            // Function to play a game of rock paper scissors with multiple rounds.
             function playGame(rounds) {
                 // If the number of rounds played is equal to 0. 
                 if (rounds == 0) {
@@ -113,23 +107,6 @@
 
             playGame(numRounds())
             // Play multiple rounds of a game of rock paper scissors
-
-            
-           
-            // When count is greater than five, log "Game Over" and end the loop. 
-            
-
-            
-
-
-
-    
-             
-         
-
-
-
-
             
         </script>
     </body>
