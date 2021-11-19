@@ -93,6 +93,12 @@
                 if (rounds == 0) {
                     // Let the user know the game is over
                     console.log("Game Over");
+                    // Tally the score
+                    // If number of rounds won by user equals number of rounds won by computer
+                    // log "It's a tie!"
+                    // Else if number of rounds won by the user is more than the number won by the computer
+                    // log "Player1 wins!"
+                    // Else, log "Computer wins!"
                     // End the function call
                     return;
                 // Otherwise, call the playRound function, and call playGame, with 1 subtracted from the rounds value.
@@ -101,7 +107,6 @@
                     playRound(userChoice(), aiChoice())
                     playGame(rounds - 1)
                 }
-                    
             }
             
 
