@@ -25,7 +25,7 @@
             // 4. When a winner is decided, the program needs to close, or
             // ask if you would like to play again. 
 
-            // Function to accept and log user input
+            // Function to accept and loguser input
             function userChoice() {
                 let choice = prompt('Choose rock, paper, or scissors.', 'scissors')
                 console.log(`Player1 chooses ${choice}`)
@@ -98,7 +98,7 @@
                 // Otherwise, call the playRound function, and call playGame, with 1 subtracted from the rounds value.
                 } else {
                     // call playRound function
-                    playRound(aiChoice(), userChoice())
+                    playRound(userChoice(), aiChoice())
                     playGame(rounds - 1)
                 }
                     
