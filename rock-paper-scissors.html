@@ -25,9 +25,11 @@
             // 4. When a winner is decided, the program needs to close, or
             // ask if you would like to play again. 
 
-            // Function to accept and loguser input
+            // Function to accept and log user input
             function userChoice() {
-                let choice = prompt('Choose rock, paper, or scissors.', 'scissors')
+                let choice = prompt('Choose rock, paper, or scissors.', 'rock')
+                // Convert user input to lowercase
+                choice = choice.toLowerCase()
                 console.log(`Player1 chooses ${choice}`)
                 return choice
                 }
@@ -79,8 +81,6 @@
                 }
             } 
 
-
-        
             // Function to let the user choose how many rounds they want to play.
             function numRounds() {
                 let rounds = prompt('How many rounds do you want to play?', 3);
