@@ -2,15 +2,14 @@
 
 ---Rock Paper Scissors---
 
-Challenge: Play rock paper scissors against the computer.
+Instructions: Use the prompt window and the console to play 'Rock Paper Scissors' against the computer. 
 
 Rules: 
   Rock beats scissors
   Scissors beats paper
   Paper beats rock
 
-
-  Sub challenges: 
+Sub challenges: 
             
   1. The user needs a way to input rock, paper or scissors -Complete
   2. Convert all input to lowercase. -Complete
@@ -19,7 +18,7 @@ Rules:
   5. There needs to be a tie condition. -Complete
   6. When a winner for a round is decided, the program needs to start another round. -Complete 
 
-  Optional sub-challenges:
+Optional sub-challenges:
             
   1. Allow the user to choose a username. -Incomplete
   2. If the user enters an invalid choice, they get to choose again. -Complete
@@ -28,3 +27,5 @@ Rules:
   5. Tally wins and losses to decide who wins when multiple rounds are played. -Incomplete
   6. Prompt the user to play again. -Incomplete
   7. Create a web GUI -Incomplete
+
+
