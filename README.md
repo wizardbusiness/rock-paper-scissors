@@ -26,3 +26,5 @@ Rules:
   3. Prompt the user to decide how many rounds to play. -Complete
   4. Allow the user to exit the game at any time by pressing 'cancel' on their turn. -Incomplete (currently crashes the game with a typeError)
   5. Tally wins and losses to decide who wins when multiple rounds are played. -Incomplete
+  6. Prompt the user to play again. -Incomplete
+  7. Create a web GUI -Incomplete
