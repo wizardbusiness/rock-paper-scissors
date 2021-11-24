@@ -8,34 +8,67 @@
     <body>
         <script>
 
-            // Rock Paper Scissors
+            /*
+            ---Rock Paper Scissors---
 
-            // Challenge: Play rock paper scissors against the computer
+            Challenge: Play rock paper scissors against the computer.
 
-            // Rules: 
-            // Rock beats scissors
-            // Scissors beats paper
-            // Paper beats rock
+            Rules: 
+            Rock beats scissors
+            Scissors beats paper
+            Paper beats rock
 
-            // Sub challenges: 
-            // 1. The computer needs to choose rock, paper or scissors - Finished
-            // 2. The user needs a way to input rock, paper or scissors - Finished
-            // 3a. There needs to be a way to compare choices, and decide a winner
-            // 3b. There needs to be a tie condition.
-            // 4. When a winner is decided, the program needs to close, or
-            // ask if you would like to play again. 
 
-            // Function to accept and log user input
+            Sub challenges: 
+            
+            1a. The user needs a way to input rock, paper or scissors -Complete
+            b. Convert all input to lowercase. -Complete
+            2. The computer needs to choose rock, paper or scissors -Complete
+            3a. There needs to be a way to compare choices, and decide a winner for each round. -Complete
+             b. There needs to be a tie condition. -Complete
+            4. When a winner for a round is decided, the program needs to start another round. -Complete 
+
+            Optional sub-challenges:
+            
+            1. Allow the user to choose a username. -Incomplete
+            2. If the user enters an invalid choice, they get to choose again. -Complete
+            3. Prompt the user to decide how many rounds to play. -Complete
+            4. Allow the user to exit the game at any time by pressing 'cancel' on their turn. -Incomplete (currently crashes the game with a typeError)
+            5. Tally wins and losses to decide who wins when multiple rounds are played. -Incomplete 
+            */
+
+            // Function to let the user choose how many rounds they want to play.
+            function numRounds() {
+                let rounds = prompt('How many rounds do you want to play?', 3);
+                // If the user enters something other than a number
+                if (isNaN(rounds)) {
+                    // Alert them, and ask them to enter their choice again. 
+                    alert('Please choose a valid number.')
+                    return numRounds();
+                } else {
+                return rounds;
+                }
+            }
+
+            // Let the user choose 'rock', 'paper', or 'scissors'.
             function userChoice() {
-                let choice = prompt('Choose rock, paper, or scissors.', 'rock')
+                let choice = prompt('Choose rock, paper, or scissors.')
                 // Convert user input to lowercase
                 choice = choice.toLowerCase()
-                console.log(`Player1 chooses ${choice}`)
-                return choice
+                // If the user doesn't choose 'rock' AND 'paper' AND 'scissors'...
+                if (choice != 'rock' &&
+                    choice != 'paper' &&
+                    choice != 'scissors') {
+                        alert(`Please choose 'rock', 'paper', or 'scissors'.`) // ... ask them to make a valid choice. 
+                        return userChoice(); // Then, return to the start of the function call. 
+                // Otherwise, log and return the chosen value.   
+                } else {
+                    console.log(`Player1 chooses ${choice}`)
+                    return choice
                 }
+            }
 
-            // Function to choose rock paper or scissors for the computer.
-
+            // Make the computer choose 'rock', 'paper', or 'scissors' randomly.
             function aiChoice() {
                 // Generate a number between between 0 and 1.
                 let choice = Math.random(0, 1)
@@ -54,65 +87,50 @@
                 } 
             }
 
-            // Function to play a round and compare the ai choice to user choice, and decide a winner
+            // Play a round against the computer
             function playRound(userChoice, aiChoice) {
-          
                 // if ai choice equals user choice, it's a tie!
                 if (userChoice == aiChoice) {
-                console.log(`This round's a tie!\n `);
-                return;
-                }
+                    console.log(`This round's a tie!\n `);
+                    return;
                 // Else, if ai chooses rock and user chooses scissors, 
                 // OR ai chooses paper and user chooses rock, 
                 // OR ai chooses scissors and user chooses paper...
-                else if (aiChoice == 'rock' && userChoice == 'scissors' ||
-                         aiChoice == 'paper' && userChoice == 'rock' ||
-                         aiChoice == 'scissors' && userChoice == 'paper')  {
+                } else if (aiChoice == 'rock' && userChoice == 'scissors' ||
+                    aiChoice == 'paper' && userChoice == 'rock' ||
+                    aiChoice == 'scissors' && userChoice == 'paper')  {
                     // ai wins: return lose statement.
-                    console.log(`Player1 loses the round! ${aiChoice} beats ${userChoice}.\n `)
-                    // Add 1 to ai score and end function call
+                    console.log(`Player1 loses the round! ${aiChoice} beats ${userChoice}.\n `);
+                // Otherwise player1 wins: return win statement.
+                } else {
+                    console.log(`Player1 wins the round! ${userChoice} beats ${aiChoice}!\n `);
                     return;
                 }
-                // else player1 wins: return win statement.
-                else {
-                    console.log(`Player1 wins the round! ${userChoice} beats ${aiChoice}!\n `)
-                    // Add 1 to Player1 score and end function call
-                    return;
-                }
-            } 
-
-            // Function to let the user choose how many rounds they want to play.
-            function numRounds() {
-                let rounds = prompt('How many rounds do you want to play?', 3);
-                return rounds;
             }
             
 
 
-            // Function to play a game of rock paper scissors with multiple rounds.
+            // Play multiple rounds of rock paper scissors with multiple rounds.
             function playGame(rounds) {
-                // If the number of rounds played is equal to 0. 
+                // If the number of rounds played is equal to 0... 
                 if (rounds == 0) {
-                    // Let the user know the game is over
+                    // Let the user know the game is over.
                     console.log("Game Over");
-                    // If number of rounds won by user equals number of rounds won by computer
-                    // log "It's a tie!"
-                    // Else if number of rounds won by the user is more than the number won by the computer
-                    // log "Player1 wins!"
-                    // Else, log "Computer wins!"
-                    // End the function call
                     return;
+                // Else, if the user clicks cancel on their turn, end the function call. 
                 // Otherwise, call the playRound function, and call playGame, with 1 subtracted from the rounds value.
                 } else {
-                    // call playRound function
-                    playRound(userChoice(), aiChoice())
-                    playGame(rounds - 1)
+                    playRound(userChoice(), aiChoice());
+                    playGame(rounds - 1);
                 }
             }
             
-
+            // Call the function with the numRounds function as the argument. 
             playGame(numRounds())
-            // Play multiple rounds of a game of rock paper scissors
+
+
+
+           
             
         </script>
     </body>
