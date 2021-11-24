@@ -12,12 +12,12 @@ Rules:
 
   Sub challenges: 
             
-  1a. The user needs a way to input rock, paper or scissors -Complete
-   b. Convert all input to lowercase. -Complete
-  2. The computer needs to choose rock, paper or scissors -Complete
-  3a. There needs to be a way to compare choices, and decide a winner for each round. -Complete
-   b. There needs to be a tie condition. -Complete
-  4. When a winner for a round is decided, the program needs to start another round. -Complete 
+  1. The user needs a way to input rock, paper or scissors -Complete
+  2. Convert all input to lowercase. -Complete
+  3. The computer needs to choose rock, paper or scissors -Complete
+  4. There needs to be a way to compare choices, and decide a winner for each round. -Complete
+  5. There needs to be a tie condition. -Complete
+  6. When a winner for a round is decided, the program needs to start another round. -Complete 
 
   Optional sub-challenges:
             
