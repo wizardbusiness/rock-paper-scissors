@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors(console log edition)</title>
+    <meta charset='UTF-8'/>
+  </head>
+  <body>
+    <h4>Rock Paper Scissors</h4>
+    <script>
+      
+      //Rules: 
+      // Rock beats scissors.
+      // Scissors beats paper.
+      // Paper beats rock. 
+
+      // declare ai func 
+      const aiPlay = () => {
+        // in: none 
+        // out: 'rock', 'paper', 'scissors'
+        // need to randomly return 'rock', 'paper', or 'scissors'.
+        // use random number (randNum) between 0 and 1. 
+        const randNum = Math.random();
+        // if randNum is less than or equal to one third, return 'rock'.
+        if (randNum <= 1/3) return 'rock';
+        // else if randNum is greater than one third and less than or equal to two thirds, return 'paper'.
+        else if (randNum > 1/3 && randNum <= 2/3) return 'paper';
+        // else if randNum is greater than two thirds and less than one, return 'scissors.'
+        else if (randNum > 2/3 && randNum <= 1) return 'scissors';
+      }
+        
+      // declare func to prompt player for input. 
+      // in: none
+      // out: rock, paper or scissors.
+      const play = () => prompt(`Please choose 'rock', 'paper', or 'scissors'.`);
+      
+
+      const numRounds = () => prompt('How many rounds would you like to play?')
+
+      // const res = numRounds();
+
+      // console.log(typeof res);
+
+      // declare a function PlayGame.
+        // in: numRounds, roundsWon, roundsLost;
+        // out: 'Win' msg if true, 'Lose' msg if false. 
+      const playGame = (numRounds, roundsWon = 0, roundsLost = 0) => {
+        // console.log(typeof numRounds)
+        // if numRounds is not a number log error message. 
+        // if (typeof numRounds != 'number') {
+        //   console.log('Please enter an integer for the number of rounds to be played!');
+        //   // return playgame again.
+        //   return playGame(prompt('How many rounds would you like to play?'), roundsWon, roundsLost);
+        // } 
+        // base: if numRounds has value of 0, and roundsWon is greater than roundsLost, return 'win' message.
+        if (numRounds === null) return 'Thanks for playing!'
+        if (numRounds <= 0 && roundsWon > roundsLost) return 'You win!';
+        // else if numRounds is 0 and roundsLost is greater, return 'lose' message. 
+        else if (numRounds <= 0 && roundsWon < roundsLost) return 'You lose!';
+        // else return 'tie' message.
+        else if (numRounds <= 0 && roundsWon === roundsLost) return 'This round\'s a tie.';
+        // recursive: 
+        console.log(`${numRounds} rounds to go!`);
+        const str = play();
+        // if str is not 'rock' 'paper' or 'scissors' log error message. 
+        // if (str !== 'rock' && str !== 'scissors' && str !== 'scissors') {
+        //   console.log(`Please enter 'rock', 'paper', or 'scissors'`);
+        //   // return playGame again. 
+        //   return playGame(numRounds, roundsWon, roundsLost);
+        // }
+        
+        // invoke aiPlay func, store result in aiChoice var. 
+        const aiChoice = aiPlay();
+      
+        // if input equals result of invoking aiPlay, log that it's a tie, return playRound func
+        if (aiChoice === str) {
+          console.log(`You both chose ${str}. This round's a tie!`);
+          return playGame(numRounds, roundsWon, roundsLost);
+        }
+        // win states:
+        // if str is paper, and result is rock 
+        // or str is rock, and result is scissors
+        // or str is scissors, and result is paper
+        if (str === 'paper' && aiChoice === 'rock' ||
+            str === 'rock' && aiChoice === 'scissors' ||
+            str === 'scissors' && aiChoice === 'paper') {
+          // log 'win' message.
+          console.log(`You win this round! You chose ${str} and ${str} beats ${aiChoice}`);
+          // return playRound func. decrement numRounds, increment roundsWon. 
+          return playGame(numRounds - 1, roundsWon + 1, roundsLost);
+          // else
+        } else {
+          // log 'lose' message.
+          console.log(`You lose this round! AI chose ${aiChoice}, and ${aiChoice} beats ${str}!`);
+          // return playRound. decrement numRounds, increment roundsLost.
+          return playGame(numRounds - 1, roundsWon, roundsLost + 1);
+        }
+      }
+
+      console.log(playGame(numRounds()));
+    </script>
+  </body>
+</html>
